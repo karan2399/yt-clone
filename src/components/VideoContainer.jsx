@@ -12,6 +12,7 @@ const VideoContainer = () => {
     setVideos(jsonData.items);
   };
 
+  // const EnhancedVideoCard = AdVideoCard(VideoCard);
   useEffect(() => {
     getVideos();
   }, []);
@@ -21,6 +22,7 @@ const VideoContainer = () => {
         return (
           <Link to={"/watch?v=" + video.id} key={video.id}>
             <VideoCard info={video} />
+            {/* <EnhancedVideoCard info={video} /> */}
           </Link>
         );
       })}
