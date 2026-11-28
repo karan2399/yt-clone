@@ -10,3 +10,5 @@ export const YT_SEARCH_VIDEOS_API =
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=25&key=" +
   GOOGLE_API_KEY +
   "&q=";
+
+export const OFFSET_LVIE_CHAT = 10;

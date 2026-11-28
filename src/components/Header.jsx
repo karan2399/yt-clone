@@ -69,11 +69,19 @@ const Header = () => {
         />
 
         <Link to="/" aria-label="Go to home" className="flex items-center">
-          <img
-            className="mx-2 h-8"
-            src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/960px-YouTube_Logo_2017.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20230929095411"
-            alt="YT Logo"
-          />
+          <div className="mx-2 flex h-8 items-center gap-1" aria-label="YouTube">
+            <svg
+              className="h-6 w-8 shrink-0"
+              viewBox="0 0 32 22"
+              role="img"
+              aria-hidden="true">
+              <rect width="32" height="22" rx="6" fill="#ff0033" />
+              <path d="M13 6.2v9.6l8-4.8-8-4.8Z" fill="white" />
+            </svg>
+            <span className="text-lg font-bold tracking-tight text-slate-950">
+              YouTube
+            </span>
+          </div>
         </Link>
       </div>
 
@@ -92,18 +100,18 @@ const Header = () => {
           </button>
           {showSearchOptions && (
             <div className="absolute left-0 right-[84px] top-[calc(100%+6px)] z-50">
-              <ul className="w-full overflow-hidden rounded-xl border border-slate-200 bg-white py-2 shadow-[0_8px_24px_rgba(15,23,42,0.16)]">
-                {searchResults.map((item) => {
-                  return (
+              {searchResults.length > 0 && (
+                <ul className="w-full overflow-hidden rounded-xl border border-slate-200 bg-white py-2 shadow-[0_8px_24px_rgba(15,23,42,0.16)]">
+                  {searchResults.map((item) => (
                     <li
                       onClick={() => handleSearchOptionClick(item)}
                       key={item}
                       className="cursor-pointer px-4 py-2 text-sm font-medium text-slate-800 transition hover:bg-slate-100">
                       {item}
                     </li>
-                  );
-                })}
-              </ul>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
         </div>
